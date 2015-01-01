@@ -7,14 +7,13 @@ var SongQueue = Songs.extend({
       this.remove(song);
     }, this);
 
-    this.on('play', function(song){
-
-    }, this);
-
   },
 
   addSong: function (song) {
     this.add(new SongModel(song.attributes));
+    if (this.models.length === 1) {
+      song.play();
+    }
   }
 
 });
