@@ -18,6 +18,13 @@ var SongModel = Backbone.Model.extend({
 
   remove: function(){
     this.trigger('removeSong', this);
+  },
+
+  setSongListeners: function() {
+
+    $('#player').on('ended', function () {
+      console.log('ended!');
+    })
   }
 
 });

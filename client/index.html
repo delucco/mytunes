@@ -32,6 +32,12 @@
 
         // put the view onto the screen
         $('body').append(appView.render());
+
+        $("#player").bind('ended', function(){
+            // done playing
+            console.log('stopped');
+            alert("Player stopped");
+        });
       });
     </script>
   </body>

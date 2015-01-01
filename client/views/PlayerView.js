@@ -8,7 +8,7 @@ var PlayerView = Backbone.View.extend({
 
   template: _.template('<span class="nowPlaying"><%= artist %> \
                         <%= title %> </span><br/> \
-                        <audio controls autoplay src=<%= url %> />'),
+                        <audio id="player" controls autoplay src=<%= url %> />'),
 
   initialize: function() {
     this.render();
@@ -20,8 +20,11 @@ var PlayerView = Backbone.View.extend({
   },
 
   render: function(){
-    return this.$el.html( this.template(this.model.attributes) );
+    this.$el.html( this.template(this.model.attributes) );
+    this.model.setSongListeners();
+
     // return this.$el.attr('src', this.model ? this.model.get('url') : '');
+
   }
 
 });
