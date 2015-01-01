@@ -2,12 +2,14 @@
 var SongQueue = Songs.extend({
 
   initialize: function(){
-    // this.set('queue', []);
+
+    this.on('removeSong', function(song){
+      this.remove(song);
+    }, this);
+
   },
 
   addSong: function (song) {
-    // console.log(song.toJSON());
-    // this.get('models').push(song);
     this.add(new SongModel(song.attributes));
   }
 

@@ -7,9 +7,11 @@ var SongQueueView = Backbone.View.extend({
     this.render();
 
     this.collection.on('add', function(model){
-      console.log('song enqueued');
       this.render();
-      // this.playerView.setSong(model.get('currentSong'));
+    }, this);
+
+    this.collection.on('remove', function(song){
+       this.render();
     }, this);
   },
 
